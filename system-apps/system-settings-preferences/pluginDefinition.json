@@ -14,8 +14,8 @@
     "descriptionKey": "Personalization",
     "descriptionDefault": "Personalization",
     "defaultWindowStyle": {
-      "width": 500,
-      "height": 500
+      "width": 400,
+      "height": 220
     }
   }
 }

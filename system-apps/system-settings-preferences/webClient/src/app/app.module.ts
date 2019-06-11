@@ -18,10 +18,12 @@ import { ZluxPopupWindowModule, ZluxButtonModule } from '@zlux/widgets';
  
 import { AppComponent } from './app.component';
 import { LanguageComponent } from './language/language.component';
+import { NotesComponent } from './notes/notes.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent, LanguageComponent
+    AppComponent, LanguageComponent, NotesComponent
   ],
   imports: [
     CommonModule,

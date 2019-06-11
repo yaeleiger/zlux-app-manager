@@ -39,17 +39,67 @@
   background-color: rgb(240, 240, 100);
   width: 100%;
   height: 100%;
-
+  border: 0px;
+  font-size: larger;
+  color: #3a3a3a;
+  outline: none;
 }
 
 
 .rocket-logo{
-  width: 10%;
-  height: 10%;
-  /* float: bottom; */
-  float: right;
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  width: 60px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  height: 80px;
 
 }
+
+.pink{
+
+  position: absolute;
+  bottom: 2px;
+  left: 40px;
+  width: 30px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  height: 30px;
+
+}
+.blue{
+  position: absolute;
+  bottom: 2px;
+  left: 26px;
+  width: 30px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  height: 30px;
+
+}
+.yellow{
+  position: absolute;
+  bottom: 2px;
+  left: 12px;
+  width: 30px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  height: 30px;
+
+}
+
+.plus{
+  position: absolute;
+  bottom: 2px;
+  left: 80px;
+  width: 30px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  height: 30px;
+
+}
+
 
 
 .notes-icon {
