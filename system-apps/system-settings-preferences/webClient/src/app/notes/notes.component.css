@@ -1,0 +1,101 @@
+
+
+/*
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Copyright Contributors to the Zowe Project.
+*/
+ 
+.notes-separator-hor {
+  border-color: #d7a5db;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 1px;
+}
+
+.notes-button {
+  padding: 10px;
+  color: #fbff0a;
+  background-color: #0000000a;
+  border: transparent;
+  width: 100%;
+  cursor: pointer;
+}
+
+.notes-submit {
+  background-color: #a875ad;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+.sticky{
+  background-color: rgb(240, 240, 100);
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.rocket-logo{
+  width: 10%;
+  height: 10%;
+  /* float: bottom; */
+  float: right;
+
+}
+
+
+.notes-icon {
+  width: 80px;
+  height: 80px;
+  background-image: url("../../assets/notes_icon.png");
+  background-size: 80px 80px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 90px;
+  background-repeat: no-repeat;
+}
+
+.notes-main-window {
+  background-color: #f4f772;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+}
+
+
+.notes-content-right{
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}
+
+.global-veil {
+  width: 300%;
+  height: 400%;
+  background-color: #00000091;
+  position: fixed;
+  margin-left: -100%;
+  margin-top: -150%;
+}
+
+/*
+  This program and the accompanying materials are
+  made available under the terms of the Eclipse Public License v2.0 which accompanies
+  this distribution, and is available at https://www.eclipse.org/legal/epl-v20.html
+  
+  SPDX-License-Identifier: EPL-2.0
+  
+  Copyright Contributors to the Zowe Project.
+*/
+
