@@ -8,9 +8,11 @@
   
   Copyright Contributors to the Zowe Project.
 */
-import { Component, Inject, Optional } from '@angular/core';
+import { Component, Inject, Optional, Injector } from '@angular/core';
 import { Angular2InjectionTokens, Angular2PluginWindowActions } from 'pluginlib/inject-resources';
 import { TranslationService } from 'angular-l10n';
+import { DesktopPluginDefinitionImpl } from '../../../../../../virtual-desktop/src/app/plugin-manager/shared/desktop-plugin-definition';
+
 
 
 @Component({
@@ -25,6 +27,10 @@ export class NotesComponent {
   private idnotes: string;
   public isRestartWindowVisible: boolean;
   public isVeilVisible: boolean;
+  private applicationManager: MVDHosting.ApplicationManagerInterface;
+  private pluginImpl: DesktopPluginDefinitionImpl;
+
+
 
   // Strings used in UI
   public notess: string;
@@ -36,13 +42,17 @@ export class NotesComponent {
   public RestartLater: string;
   public notesChanges: string;
   public Select: string;
+  private readonly plugin: any = ZoweZLUX.pluginManager.getDesktopPlugin();
 
   constructor(
     // private notesLocaleService: notesLocaleService,
+    private injector: Injector,
+
     private translation: TranslationService,
     @Optional() @Inject(Angular2InjectionTokens.WINDOW_ACTIONS) private windowActions: Angular2PluginWindowActions,
 
   ) {
+    this.applicationManager = this.injector.get(MVDHosting.Tokens.ApplicationManagerToken);
     this.isRestartWindowVisible = false;
     this.isVeilVisible = false;
     this.updatenotesSelection();
@@ -62,8 +72,54 @@ export class NotesComponent {
     //   }
     // )
   }
+setPink(){
+  let main = document.getElementsByClassName("sticky")[0];
+  main.setAttribute("style", "background-color: rgb(250, 150, 200)");
+  let border = document.getElementsByClassName("notes-main-window")[0];
+  border.setAttribute("style", "background-color: pink");
+}
 
-  closeRestartWindow(): void {
+setBlue(){
+
+  let main = document.getElementsByClassName("sticky")[0];
+  // main.setAttribute("style", "-webkit-text-fill-color: black");
+  main.setAttribute("style", "background-color: rgb(128, 128, 223)");
+  let border = document.getElementsByClassName("notes-main-window")[0];
+  border.setAttribute("style", "background-color: rgb(117, 117, 231)");
+
+}
+
+  
+setYellow(){
+  let main = document.getElementsByClassName("sticky")[0];
+  main.setAttribute("style", "background-color: rgb(242, 242, 19)");
+  let border = document.getElementsByClassName("notes-main-window")[0];
+  border.setAttribute("style", "background-color: rgb(240, 240, 150)");
+
+
+}
+
+setGreen(){
+  let main = document.getElementsByClassName("sticky")[0];
+  main.setAttribute("style", "background-color: greenyellow");
+  let border = document.getElementsByClassName("notes-main-window")[0];
+  border.setAttribute("style", "background-color: rgb(141, 231, 6)");
+
+
+}
+
+
+
+openTool(){
+
+  console.log("open new note plz");
+  let pluginImpl:DesktopPluginDefinitionImpl = this.plugin as DesktopPluginDefinitionImpl;
+  this.pluginImpl = pluginImpl;
+  this.applicationManager.spawnApplication(this.pluginImpl, null);
+
+}
+
+closeRestartWindow(): void {
     this.isRestartWindowVisible = false;
     this.isVeilVisible = false;
   }

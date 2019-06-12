@@ -54,8 +54,8 @@ export class PersonalizationComponent {
                             "imgSrc":"color_correction",
                            }, */
                            {
-                            "title":this.translation.translate("Languages"),
-                            "imgSrc":"foreign_language",
+                            "title":this.translation.translate("Notes"),
+                            "imgSrc":"notes",
                            },
                           /*  {
                             "title":"User Profile",

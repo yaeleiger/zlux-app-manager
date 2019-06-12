@@ -50,7 +50,7 @@
       <trans-unit id="apply-button" datatype="html">
         <source>Apply</source><target state="new">应用</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">../../system-apps/system-settings-preferences/webClient/src/app/language/language.component.ts</context>
+          <context context-type="sourcefile">../../system-apps/system-settings-preferences/webClient/src/app/notes/notes.component.ts</context>
           <context context-type="linenumber">23</context>
         </context-group>
         <note priority="1" from="description">Title of Apply button</note>

@@ -9,7 +9,12 @@
   
   Copyright Contributors to the Zowe Project.
 */
- 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+/* @font-face {
+  font-family: 'Bree Serif';
+  src: url('../../assets/BreeSerif-Regular.woff') format('.woff');
+} */
 .notes-separator-hor {
   border-color: #d7a5db;
   margin-top: 3px;
@@ -19,7 +24,7 @@
 
 .notes-button {
   padding: 10px;
-  color: #fbff0a;
+  color: #000000;
   background-color: #0000000a;
   border: transparent;
   width: 100%;
@@ -38,12 +43,28 @@
 .sticky{
   background-color: rgb(240, 240, 100);
   width: 100%;
-  height: 100%;
+  height: 90%;
   border: 0px;
   font-size: larger;
-  color: #3a3a3a;
+  -webkit-text-fill-color: rgb(94, 89, 89);
   outline: none;
+  font-family: 'Source Sans Pro';
+  font-weight: bold;
+  
+
 }
+
+.sticky::placeholder {
+  color: gray;
+  font-family: 'Source Sans Pro';
+  font-size:16px;
+  /* opacity: .8; */
+
+  
+
+}
+
+
 
 
 .rocket-logo{
@@ -54,28 +75,49 @@
   padding-right: 1px;
   padding-bottom: 3px;
   height: 80px;
+  opacity: .9;
 
 }
+
 
 .pink{
 
   position: absolute;
   bottom: 2px;
-  left: 40px;
+  left: 50px;
   width: 30px;
   padding-right: 1px;
   padding-bottom: 3px;
   height: 30px;
+  z-index:1;
+  
+  
+
+}
+
+.green{
+
+  position: absolute;
+  bottom: 2px;
+  left: 37px;
+  width: 30px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+  height: 30px;
+  z-index: 2;
+  
+  
 
 }
 .blue{
   position: absolute;
   bottom: 2px;
-  left: 26px;
+  left: 25px;
   width: 30px;
   padding-right: 1px;
   padding-bottom: 3px;
   height: 30px;
+  z-index: 3;
 
 }
 .yellow{
@@ -86,6 +128,7 @@
   padding-right: 1px;
   padding-bottom: 3px;
   height: 30px;
+  z-index:4;
 
 }
 

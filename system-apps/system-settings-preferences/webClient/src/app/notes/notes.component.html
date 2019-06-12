@@ -10,14 +10,15 @@
 <div class="notes-main-window">
 
   <div class="notes-content-right">
-    <textarea class="sticky"  required> 
-    What did you forget?
-    </textarea>
+  
+    <textarea class = "sticky" placeholder="- Apples &#10;- Peanut Butter &#10;- Pick up Avi from school "></textarea>
+
     <img class = "rocket-logo" src = "../../assets/rocket-logo.png">
-    <img class = "pink" src = "../../assets/pink.png">  
-    <img class = "blue" src = "../../assets/blue.png"> 
-    <img class = "yellow" src = "../../assets/yellow.png"> 
-    <img class = "plus" src = "../../assets/plus.png"> 
+    <img class = "pink" src = "../../assets/pink.png" (click)="setPink()" >
+    <img class = "blue" src = "../../assets/blue.png" (click)="setBlue()"> 
+    <img class = "yellow" src = "../../assets/yellow.png" (click)="setYellow()">
+    <img class = "green" src = "../../assets/green.png" (click)="setGreen()"> 
+    <img class = "plus" src = "../../assets/plus.png" (click) = "openTool()"> 
   
 
   </div>
