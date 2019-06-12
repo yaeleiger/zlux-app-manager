@@ -60,18 +60,6 @@ export class NotesComponent {
     if (this.windowActions) {this.windowActions.setTitle(this.notess);}
   }
 
-  applynotes(): void {
-    // this.notesLocaleService.setnotes(this.idnotes).subscribe(
-    //   arg => { 
-    //     this.logger.debug(`setnotes, arg=`,arg);
-    //     this.isRestartWindowVisible = true;
-    //     this.isVeilVisible = true;
-    //    },
-    //   err => {
-    //     this.logger.warn("setnotes error=",err);
-    //   }
-    // )
-  }
 setPink(){
   let main = document.getElementsByClassName("sticky")[0];
   main.setAttribute("style", "background-color: rgb(250, 150, 200)");
@@ -118,6 +106,9 @@ openTool(){
   this.applicationManager.spawnApplication(this.pluginImpl, null);
 
 }
+
+
+
 
 closeRestartWindow(): void {
     this.isRestartWindowVisible = false;
@@ -216,6 +207,8 @@ closeRestartWindow(): void {
     this.Select = this.translation.translate('Select', null, this.idnotes+"-");
 
   }
+
+  
 
 }
 /*

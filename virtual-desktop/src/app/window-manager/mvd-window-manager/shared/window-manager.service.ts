@@ -53,9 +53,9 @@ export class WindowManagerService implements MVDWindowManagement.WindowManagerSe
   private runningPluginMap: Map<PluginIdentifier, MVDWindowManagement.WindowId[]>;
 
   private focusedWindow: DesktopWindow | null;
+  private pluginImpl: DesktopPluginDefinitionImpl;
   private topZIndex: number;
   public screenshot: boolean;
-  public showPersonalizationPanel: boolean = false;
   /*
    * NOTES:
    * 1. We ignore the width and height here (I am reluctant to make a new data type just for this,
@@ -98,6 +98,45 @@ export class WindowManagerService implements MVDWindowManagement.WindowManagerSe
         .filter(win => win.windowState.stateType === DesktopWindowStateType.Maximized)
         .forEach(win => this.refreshMaximizedWindowSize(win));
     });
+
+    this.declareKeyboardBindings();
+  }
+
+  disabledEventPropagation(e: any){
+    if(e){
+      if(e.stopPropagation){
+        e.stopPropagation();
+      } else if(window.event){
+        window.event.cancelBubble = true;
+      }
+    }
+  }
+
+  declareKeyboardBindings(): void {
+      // Research says Alt + [] is the least conflicting combination amongst the major browsers
+    document.addEventListener("keydown", (event) => {
+      if (this.focusedWindow != null) {
+        if (event.which == 77 && event.altKey) { // Maximize - Alt+M
+          this.maximizeToggle(this.focusedWindow.windowId);
+          this.disabledEventPropagation(event);
+          event.preventDefault();
+        } else if (event.which == 78 && event.altKey) { // Minimize - Alt+N
+          this.minimizeToggle(this.focusedWindow.windowId);
+          this.disabledEventPropagation(event);
+          event.preventDefault();
+        } else if (event.which == 84 && event.altKey) { // New instance - Alt+T
+          this.applicationManager.spawnApplication(this.pluginImpl, null);
+          this.disabledEventPropagation(event);
+          event.preventDefault();
+        } else if (event.which == 88 && event.altKey) { // Close - Alt+X
+          this.closeWindow(this.focusedWindow.windowId);
+          this.disabledEventPropagation(event);
+          event.preventDefault();
+        }
+        else if (event.which == 83 && event.altKey) { // Switcher - Alt+S
+        }
+    }
+    }); 
   }
 
   /* TODO: https://github.com/angular/angular/issues/17725 gets in the way */
@@ -105,6 +144,7 @@ export class WindowManagerService implements MVDWindowManagement.WindowManagerSe
     return Array.from(this.windowMap.values());
   }
 
+ 
   private refreshMaximizedWindowSize(desktopWindow: DesktopWindow): void {
     //this is the window viewport size, so you must subtract the header and launchbar from the height.
     desktopWindow.windowState.position = { top: 0,
@@ -290,7 +330,9 @@ export class WindowManagerService implements MVDWindowManagement.WindowManagerSe
   
   createWindow(plugin: MVDHosting.DesktopPluginDefinition): MVDWindowManagement.WindowId {
     /* Create window instance */
+    console.log("Creating new window!!!!!!!!!!!!!!!");
     let pluginImpl:DesktopPluginDefinitionImpl = plugin as DesktopPluginDefinitionImpl;
+    this.pluginImpl = pluginImpl;
     const windowId = this.generateWindowId();
     const newWindowPosition: WindowPosition = this.generateNewWindowPosition(pluginImpl);
     const newState = new DesktopWindowState(this.topZIndex, newWindowPosition);
@@ -653,4 +695,3 @@ export class WindowManagerService implements MVDWindowManagement.WindowManagerSe
 
   Copyright Contributors to the Zowe Project.
 */
-
